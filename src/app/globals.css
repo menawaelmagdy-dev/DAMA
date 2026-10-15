@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ *  ERA Residence — design tokens
+ *  Warm off-white paper, near-black ink, one sand accent.
+ * ------------------------------------------------------------------ */
+@theme {
+  --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* surfaces */
+  --color-paper: #f6f4f0;
+  --color-paper-2: #efece6;
+  --color-white: #ffffff;
+  --color-sand: #e4ddd2;
+  --color-stone: #cfc5b6;
+
+  /* ink */
+  --color-ink: #14130f;
+  --color-ink-soft: #38352f;
+  --color-ink-mute: #8a8377;
+
+  /* accents */
+  --color-accent: #b08968;
+  --color-olive: #5f6350;
+  --color-line: #ddd7cc;
+
+  /* motion */
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .u-shell {
+    width: 100%;
+    padding-inline: clamp(1.25rem, 4vw, 5.5rem);
+    margin-inline: auto;
+    max-width: 112rem;
+  }
+
+  .u-edge {
+    width: 100%;
+    padding-inline: clamp(1.25rem, 4vw, 5.5rem);
+  }
+
+  .t-display {
+    font-family: var(--font-display);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+  }
+
+  .t-eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .t-num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .line-mask > * {
+    display: block;
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("/svg/grain.svg");
+    background-size: 220px 220px;
+    mix-blend-mode: multiply;
+  }
+}
+
+/* SplitText wrappers */
+.sp-line,
+.sp-word {
+  will-change: transform;
+}
+.sp-line {
+  padding-bottom: 0.05em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

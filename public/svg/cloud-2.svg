@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="1200" height="260" fill="none">
+  <g filter="url(#soft2)" fill="#fff">
+    <ellipse cx="220" cy="160" rx="200" ry="62" opacity=".8"/>
+    <ellipse cx="520" cy="130" rx="260" ry="74" opacity=".65"/>
+    <ellipse cx="880" cy="168" rx="230" ry="60" opacity=".75"/>
+    <ellipse cx="1120" cy="140" rx="150" ry="48" opacity=".55"/>
+  </g>
+  <defs>
+    <filter id="soft2" x="-30%" y="-80%" width="160%" height="280%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+</svg>
