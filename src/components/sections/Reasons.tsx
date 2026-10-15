@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, EASE, reduced } from "@/lib/gsap";
-import { img, reasonsImages } from "@/lib/media";
 import { useApp } from "../AppContext";
 import { Eyebrow, ParallaxImage, Reveal, SplitLines } from "../ui";
 
@@ -12,9 +11,8 @@ export default function Reasons() {
 
   useGSAP(
     () => {
-      if (!ready) return;
       const el = root.current;
-      if (!el) return;
+      if (!ready || !el) return;
 
       if (reduced()) {
         gsap.set(el.querySelectorAll(".reason-row"), { autoAlpha: 1 });
@@ -48,9 +46,9 @@ export default function Reasons() {
   );
 
   return (
-    <section id="reasons" ref={root} className="relative bg-sand-200/60 py-20 md:py-32">
+    <section id="reasons" ref={root} className="relative bg-paper-2/70 py-20 md:py-32">
       <div className="u-edge">
-        <div className="mb-14 flex items-baseline justify-between gap-6 border-b border-ink/10 pb-5 md:mb-24">
+        <div className="mb-14 flex items-baseline justify-between gap-6 border-b border-line pb-5 md:mb-24">
           <Eyebrow className="text-ink-mute">{t.reasons.eyebrow}</Eyebrow>
           <span className="t-num t-eyebrow text-ink-mute">
             {String(t.reasons.items.length).padStart(2, "0")} / 0{t.reasons.items.length}
@@ -67,7 +65,7 @@ export default function Reasons() {
             >
               <div className={`md:col-span-7 ${i % 2 === 1 ? "md:[direction:ltr]" : ""}`}>
                 <ParallaxImage
-                  src={img[reasonsImages[item.image] ?? "garden"]}
+                  src={item.image}
                   alt={item.title}
                   className="aspect-4/3 w-full md:aspect-3/2"
                   sizes="(max-width: 768px) 100vw, 58vw"
@@ -76,19 +74,12 @@ export default function Reasons() {
               </div>
 
               <div className={`md:col-span-5 ${i % 2 === 1 ? "md:[direction:ltr]" : ""}`}>
-                <div className="reason-index reason-stagger t-num t-eyebrow mb-5 text-clay">
-                  0{i + 1}
-                </div>
-                <SplitLines
-                  as="h3"
-                  className="reason-stagger t-display mb-6 text-[clamp(1.9rem,4.4vw,3.5rem)] text-ink"
-                >
+                <div className="reason-index reason-stagger t-num t-eyebrow mb-5 text-accent">0{i + 1}</div>
+                <SplitLines as="h3" className="reason-stagger t-display mb-6 text-[clamp(1.9rem,4.4vw,3.5rem)] text-ink">
                   {item.title}
                 </SplitLines>
                 <Reveal className="reason-stagger">
-                  <p className="mb-8 max-w-lg text-sm/relaxed text-ink-soft md:text-base/relaxed">
-                    {item.body}
-                  </p>
+                  <p className="mb-8 max-w-lg text-sm/relaxed text-ink-soft md:text-base/relaxed">{item.body}</p>
                 </Reveal>
                 <p className="reason-stagger t-eyebrow text-ink-mute">{item.foot}</p>
               </div>
@@ -96,7 +87,7 @@ export default function Reasons() {
           ))}
         </div>
 
-        <blockquote className="mt-28 grid grid-cols-1 gap-8 border-t border-ink/10 pt-12 md:mt-44 md:grid-cols-12 md:pt-16">
+        <blockquote className="mt-28 grid grid-cols-1 gap-8 border-t border-line pt-12 md:mt-44 md:grid-cols-12 md:pt-16">
           <p className="t-eyebrow text-ink-mute md:col-span-3">{t.reasons.quoteBy}</p>
           <div className="md:col-span-9">
             <SplitLines as="p" className="t-display text-[clamp(1.4rem,3.4vw,2.7rem)] text-ink" stagger={0.05}>

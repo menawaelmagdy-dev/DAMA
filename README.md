@@ -1,8 +1,8 @@
-# DAMA Development — Rawasin
+# ERA Residence — Next.js clone
 
-A full Next.js build of the **Era Residence** website experience (structure, preloader, scroll choreography, day/night hero, drag-to-explore map, cursor, cookie bar) rebuilt for **DAMA Development** — the Egyptian developer behind **Rawasin**, a boutique gated community in **New Sohag**.
+A working rebuild of **[era-residence.com](https://www.era-residence.com/)** in Next.js 15: the preloader, every scroll animation, the day/night hero, the drag-to-explore coastline, the full 25-apartment inventory with filters + per-apartment pages, and the contact page.
 
-Everything is bilingual: **English + Arabic with full RTL**, swapped live from the header.
+Same copy, same structure, same motion — different (modern) stack.
 
 ---
 
@@ -10,92 +10,68 @@ Everything is bilingual: **English + Arabic with full RTL**, swapped live from t
 
 | | |
 |---|---|
-| Framework | Next.js 15 (App Router, React 19, TypeScript) |
-| Styling | Tailwind CSS v4 (`@theme` design tokens, no config file) |
-| Animation | GSAP 3.15 (ScrollTrigger, SplitText, Flip, Draggable + InertiaPlugin, Observer, CustomEase) via `@gsap/react` |
+| Framework | Next.js 15 App Router · React 19 · TypeScript |
+| Styling | Tailwind CSS v4 (`@theme` tokens, logical properties) |
+| Animation | GSAP 3.15 — ScrollTrigger, SplitText, Flip, Draggable + InertiaPlugin, CustomEase — via `@gsap/react` |
 | Smooth scroll | Lenis, driven by the GSAP ticker |
-| Fonts | Instrument Serif (display, EN) · DM Sans (body, EN) · Noto Kufi Arabic (display, AR) · IBM Plex Sans Arabic (body, AR) — self-hosted through Fontsource |
-| Images | Generated for this project, served locally from `/public/images` (no third-party CDN) |
-
-## Getting started
+| Type | Instrument Serif (display) + DM Sans (UI), self-hosted via Fontsource |
+| Artwork | ERA's own Webflow CDN assets (see *Assets* below) |
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
+npm run dev            # http://localhost:3000
 npm run build && npm start
 ```
 
 ---
 
-## What was cloned from era-residence.com
+## Routes
 
-| ERA pattern | Here |
+| Route | What it is |
 |---|---|
-| Full-screen preloader (wordmark, line, 000→100 counter, curtain lift) | `components/Preloader.tsx` — 4-panel curtain, GSAP timeline, scroll locked until done |
-| Hero with **by day / by night** crossfade | `components/sections/Hero.tsx` — clip-path reveal, char-by-char title, hover/click day-night switch, scroll-out parallax |
-| Masked line-by-line headings | `components/ui.tsx` → `SplitLines` (SplitText `type:"lines"`, `mask:"lines"`) |
-| Clip-reveal + parallax imagery | `components/ui.tsx` → `ParallaxImage` |
-| "Three reasons" editorial rows | `components/sections/Reasons.tsx` |
-| Drag-to-explore location map with cloud layers | `components/sections/MapSection.tsx` + `components/MapArt.tsx` (hand-drawn SVG drawn on scroll) |
-| Horizontal drag-to-scroll unit cards | `components/sections/UnitTypes.tsx` (Draggable proxy + inertia) |
-| Hover-preview amenity list | `components/sections/Amenities.tsx` |
-| Pinned horizontal gallery | `components/sections/Interiors.tsx` |
-| Stacking sticky cards | `components/sections/SpaceCards.tsx` |
-| Floating "Back to top" / "Menu" / "Book a call" chrome | `components/Nav.tsx` |
-| Cookie bar, custom cursor, marquees, counters | `CookieBar.tsx`, `Cursor.tsx`, `Marquee`, `Counter` |
-| `/apartments` + `/contact` routes | `app/apartments`, `app/contact` (filters with GSAP **Flip**, validated form + animated success) |
+| `/` | The home page — 12 sections, in the original order |
+| `/apartments` | All 25 residences with **Typology / Bedrooms / Sort by / Reset** filters |
+| `/apartments/[slug]` | 25 statically generated apartment pages (`011`, `114`, `224`, …) |
+| `/contact` | Sales office, location, socials, map, opening hours |
+| `404` | Not-found page |
 
-## Structure
+`?type=ground-floor-basement · ground-floor · penthouse-duplex` deep-links the listing exactly like the original.
 
-```
-src/
-├─ app/
-│  ├─ layout.tsx            fonts, metadata, lang bootstrap, no-JS fallback
-│  ├─ page.tsx              home (12 sections)
-│  ├─ apartments/           inventory + Flip-filtered grid
-│  ├─ contact/              booking form
-│  └─ globals.css           design tokens (@theme), utilities, grain
-├─ components/
-│  ├─ AppShell.tsx          providers + preloader + smooth scroll + nav
-│  ├─ AppContext.tsx        language / ready state
-│  ├─ Preloader.tsx  Nav.tsx  Cursor.tsx  CookieBar.tsx  SmoothScroll.tsx
-│  ├─ MapArt.tsx            inline SVG plan (animatable)
-│  ├─ ui.tsx                SplitLines, Reveal, RevealGroup, ParallaxImage, Pill, Marquee, Counter
-│  └─ sections/             Hero, IntroBand, Reasons, Concept, MapSection, UnitTypes,
-│                           Amenities, Interiors, Architecture, SpaceCards, CtaBlock, Footer
-└─ lib/
-   ├─ content.ts            EN + AR copy (single source of truth)
-   ├─ units.ts              Rawasin inventory (18 units, 6 buildings)
-   ├─ gsap.ts               plugin registration, eases, split helpers
-   ├─ media.ts  scroll.ts
+## What was reproduced
+
+**Preloader** — ERA words (`Costa · Era · Residence · Estepona · del Sol`) rising behind masks, the landscape + background SVGs, a `000→100` counter and a progress rule, then a 4-panel curtain lift. Scroll is locked and the hero entrance is gated on it.
+
+**Hero** — clip-path frame reveal, char-by-char title split, and the signature **by day / by night** swap (hover *or* click) that crossfades the gated-community webp pair and shifts the colour grade. `00 Scroll` indicator, scroll-out parallax.
+
+**Home sections, in order** — Costa del Sol intro + marquee · *Three reasons to choose Era* (alternating editorial rows + architecture quote) · *The concept* + New Golden Mile place block · *The coast you wanted yours this year* map with cloud banks, drag-to-pan coastline, labels SVG and masterplan · the three typologies with bed/area specs and *Explore …* links · *A place to live* marquee + 104–244 m² range · amenities (gated community, pool, parking, spa & gym, landscaping) · *The space to Live in* with upgrades, finishes list and a pinned horizontal gallery · Architecture with Schiemann Weyers / OCWA facts and the Unreal Estate logo · the three closing pillars · *Perfect sea views / From rooftop terraces* · footer with phone, Sales Office, Privacy/Terms PDFs and the *Made by The First The Last* credit.
+
+**Apartments** — 25 real units (№, block, floor, beds, interior m², terrace m²) pulled from the live listing, filterable and sortable with a **GSAP Flip** re-flow, plus the *nothing found* empty state.
+
+**Apartment pages** — breadcrumb `Home / Select an Apartment / 011`, `No. 011` heading, block diagrams (+ `N` compass), image gallery, Interior/Terrace/Garden spec grid, **Info / Benefits** tabs, *Submit a request* and `pdf` plan download, the amenities block repeated, then *similar options* with six suggestions.
+
+**Interaction layer** — custom two-part cursor with a `DRAG` label, floating *Back to top* / *Book a call*, full-screen menu with staggered masked links, cookie bar, magnetic pill buttons, infinite marquees, animated counters, request modal with validated form + animated success.
+
+## Assets
+
+Artwork, diagrams, plan PDFs and the privacy/terms PDFs are referenced straight from **ERA's Webflow CDN** (`cdn.prod.website-files.com`). That is deliberate: this project was built in a sandbox whose egress is limited to npm/GitHub, so the files could not be mirrored here — and hotlinking keeps the clone pixel-faithful.
+
+To make it fully self-hosted, run this once on a normal machine:
+
+```bash
+npm run assets:fetch
 ```
 
-## Arabic / RTL
+It downloads all **70 assets** into `public/era/` and rewrites `src/lib/assets.local.json`; `src/lib/era.ts` resolves every URL through that map, so nothing else needs to change (delete the file to go back to the CDN).
 
-* `content.ts` holds both dictionaries; the header button switches instantly (no reload, no `?lang=` param).
-* `document.documentElement.dir` flips to `rtl`, logical CSS properties (`ps-*`, `me-*`, `start-*`) mirror the layout, and the Arabic typefaces take over via `html[dir="rtl"]` token overrides.
-* The choice persists in `localStorage` and is applied by an inline script **before paint** (no flash of the wrong direction).
-* Switching language remounts the page body so every SplitText/ScrollTrigger animation is rebuilt against the new text.
+## Before you deploy
 
-## Placeholders to replace before launch
+1. `npm run assets:fetch` (or keep the CDN references and accept the third-party dependency).
+2. Replace the simulated form submissions — the request modal in `src/components/RequestModal.tsx` uses a `setTimeout`; point it at your CRM/endpoint.
+3. Swap the metadata `metadataBase` in `src/app/layout.tsx` if the site won't live at `era-residence.com`.
+4. Copy/imagery belong to ERA Residence — this is a technical clone, not an asset licence.
 
-1. **Phone / WhatsApp** — `+20 100 000 0000` in `content.ts` (`footer.phone`, both languages) and in `app/page.tsx` JSON-LD.
-2. **Addresses** — sales office and Sohag branch strings in `content.ts`.
-3. **Contact form** — `ContactClient.tsx` currently fakes a submit (`setTimeout`); point it at your CRM/endpoint or a Next route handler.
-4. **Privacy / Terms** — footer links are `#`.
-5. **Images** — swap files in `public/images` (keep the same names, or update `lib/media.ts`).
-6. **Metadata** — `metadataBase` in `app/layout.tsx` points at `dama-development.example`.
-7. **Inventory** — `lib/units.ts` is representative sample data; replace with the real plate.
+## Notes
 
-## Performance notes
-
-* All motion is gated on `ready` (the preloader finishing) so nothing animates behind the curtain.
-* `prefers-reduced-motion` short-circuits every timeline and leaves content visible.
-* SplitText wrappers, clip-paths and pins are cleaned up through `useGSAP` contexts on unmount and on language switch.
-* Images are pre-optimised (≤1920 px, mozjpeg q80, ~1.8 MB total) and served through `next/image`.
-
-## Accessibility
-
-* Semantic landmarks (`header`, `main`, `section`, `footer`), one `h1` per page, `aria-label`s on icon-only controls, `aria-pressed` on the day/night switch.
-* Full keyboard path through the menu, filters and form; `Escape` closes the menu; visible focus colours via `accent-color` and underline states.
-* Custom cursor is pointer-only — touch devices keep their native behaviour.
+* Every animation is gated on `ready` (preloader finished), short-circuits under `prefers-reduced-motion`, and is cleaned up through `useGSAP` contexts; a `noscript` block reveals all animated content when JS is off.
+* Verified: `tsc --noEmit` clean, `next lint` 0 warnings, `next build` 0 errors (31 prerendered routes), and all four page types hydrated in a jsdom harness with **no runtime errors** (preloader reaches 100 % and hides, 19 SplitText headings, 12 hero chars, 25 unit tiles, filters and tabs render).
+* The previous DAMA-branded build of this repo is preserved in commit `ac41762`.

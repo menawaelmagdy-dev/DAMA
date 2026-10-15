@@ -5,33 +5,40 @@ import IntroBand from "@/components/sections/IntroBand";
 import Reasons from "@/components/sections/Reasons";
 import Concept from "@/components/sections/Concept";
 import MapSection from "@/components/sections/MapSection";
-import UnitTypes from "@/components/sections/UnitTypes";
+import Typologies from "@/components/sections/Typologies";
+import RangeBand from "@/components/sections/RangeBand";
 import Amenities from "@/components/sections/Amenities";
 import Interiors from "@/components/sections/Interiors";
 import Architecture from "@/components/sections/Architecture";
-import SpaceCards from "@/components/sections/SpaceCards";
-import CtaBlock from "@/components/sections/CtaBlock";
+import Pillars from "@/components/sections/Pillars";
+import ClosingCta from "@/components/sections/ClosingCta";
 import Footer from "@/components/sections/Footer";
+import { copy, site } from "@/lib/content";
+import { asset } from "@/lib/era";
 
 export const metadata: Metadata = {
-  title: "Rawasin — A place to return to",
-  description:
-    "Discover Rawasin by DAMA Development: six residential buildings, four homes per floor, 130–240 m² residences with gardens, terraces and private roof solariums in New Sohag.",
+  title: copy.meta.title,
+  description: copy.meta.description,
+  alternates: { canonical: "/" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Residence",
-  name: "Rawasin — DAMA Development",
-  description:
-    "A boutique gated community of 25 residences in New Sohag, Egypt, designed by Dar Arafa Architecture.",
+  name: "Era Residence",
+  description: copy.meta.description,
+  image: asset.heroDay,
+  telephone: "+34655408648",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "New Sohag",
-    addressRegion: "Sohag",
-    addressCountry: "EG",
+    streetAddress: "Avenida Litoral",
+    postalCode: "29680",
+    addressLocality: "Estepona",
+    addressRegion: "Málaga",
+    addressCountry: "ES",
   },
-  telephone: "+20 100 000 0000",
+  url: site.url,
+  numberOfAccommodationUnits: 25,
 };
 
 export default function HomePage() {
@@ -43,12 +50,13 @@ export default function HomePage() {
       <Reasons />
       <Concept />
       <MapSection />
-      <UnitTypes />
+      <Typologies />
+      <RangeBand />
       <Amenities />
       <Interiors />
       <Architecture />
-      <SpaceCards />
-      <CtaBlock />
+      <Pillars />
+      <ClosingCta />
       <Footer />
     </>
   );

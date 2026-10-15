@@ -6,23 +6,21 @@ import SmoothScroll from "./SmoothScroll";
 import Cursor from "./Cursor";
 import CookieBar from "./CookieBar";
 import Nav from "./Nav";
+import { RequestModalProvider } from "./RequestModal";
 
 function ShellInner({ children }: { children: React.ReactNode }) {
-  const { setReady, ready, lang } = useApp();
+  const { setReady, ready } = useApp();
 
   return (
-    <>
+    <RequestModalProvider>
       <Preloader onComplete={() => setReady(true)} />
       <SmoothScroll>
         <Nav />
-        {/* remounting on language change keeps every split-text animation in sync */}
-        <main key={lang} data-ready={ready ? "true" : "false"}>
-          {children}
-        </main>
+        <main data-ready={ready ? "true" : "false"}>{children}</main>
       </SmoothScroll>
       <Cursor />
       <CookieBar />
-    </>
+    </RequestModalProvider>
   );
 }
 

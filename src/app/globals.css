@@ -1,35 +1,32 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ *
- *  DAMA Development — design system
+ *  ERA Residence — design tokens
+ *  Warm off-white paper, near-black ink, one sand accent.
  * ------------------------------------------------------------------ */
 @theme {
-  /* Type */
   --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
   --font-body: "DM Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Surfaces */
-  --color-sand-50: #faf7f2;
-  --color-sand-100: #f3ede3;
-  --color-sand-200: #e7dccb;
-  --color-sand-300: #d8c8b1;
-  --color-sand-400: #bfa98c;
+  /* surfaces */
+  --color-paper: #f6f4f0;
+  --color-paper-2: #efece6;
+  --color-white: #ffffff;
+  --color-sand: #e4ddd2;
+  --color-stone: #cfc5b6;
 
-  /* Ink */
-  --color-ink: #16130f;
-  --color-ink-soft: #3a332c;
-  --color-ink-mute: #6f6558;
+  /* ink */
+  --color-ink: #14130f;
+  --color-ink-soft: #38352f;
+  --color-ink-mute: #8a8377;
 
-  /* Accents */
-  --color-clay: #a8703f;
-  --color-olive: #47563f;
-  --color-lagoon: #1c6b66;
+  /* accents */
+  --color-accent: #b08968;
+  --color-olive: #5f6350;
+  --color-line: #ddd7cc;
 
-  /* Motion */
+  /* motion */
   --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Layout */
-  --spacing-gutter: 1.25rem;
 }
 
 @layer base {
@@ -38,36 +35,28 @@
   }
 
   html {
-    scroll-behavior: auto;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: var(--color-sand-100);
+    background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-body);
     font-synthesis-weight: none;
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
-  }
-
-  /* Arabic swaps the display + body face for an Arabic-native pairing */
-  html[dir="rtl"] {
-    --font-display: "Noto Kufi Arabic Variable", "DM Sans Variable", sans-serif;
-    --font-body: "IBM Plex Sans Arabic", "DM Sans Variable", sans-serif;
   }
 
   ::selection {
     background: var(--color-ink);
-    color: var(--color-sand-50);
+    color: var(--color-paper);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
   }
 
-  /* Hide the native scrollbar — Lenis + the page still scroll normally */
   .no-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -82,7 +71,7 @@
     width: 100%;
     padding-inline: clamp(1.25rem, 4vw, 5.5rem);
     margin-inline: auto;
-    max-width: 108rem;
+    max-width: 112rem;
   }
 
   .u-edge {
@@ -90,30 +79,23 @@
     padding-inline: clamp(1.25rem, 4vw, 5.5rem);
   }
 
-  /* display / eyebrow type */
   .t-display {
     font-family: var(--font-display);
-    line-height: 0.92;
-    letter-spacing: -0.02em;
+    line-height: 0.95;
+    letter-spacing: -0.015em;
   }
 
   .t-eyebrow {
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     font-weight: 500;
   }
 
-  html[dir="rtl"] .t-eyebrow {
-    letter-spacing: 0;
-  }
-
   .t-num {
     font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
   }
 
-  /* masked line/word reveal targets */
   .line-mask > * {
     display: block;
   }
@@ -123,25 +105,20 @@
     position: absolute;
     inset: -50%;
     pointer-events: none;
-    opacity: 0.32;
+    opacity: 0.25;
     background-image: url("/svg/grain.svg");
     background-size: 220px 220px;
     mix-blend-mode: multiply;
-    will-change: transform;
-  }
-
-  .hairline {
-    border-color: color-mix(in oklab, var(--color-ink) 14%, transparent);
   }
 }
 
-/* SplitText generated wrappers need a little breathing room for descenders */
+/* SplitText wrappers */
 .sp-line,
 .sp-word {
   will-change: transform;
 }
 .sp-line {
-  padding-bottom: 0.06em;
+  padding-bottom: 0.05em;
 }
 
 @media (prefers-reduced-motion: reduce) {

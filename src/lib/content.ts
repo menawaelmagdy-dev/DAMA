@@ -1,588 +1,389 @@
 /**
- * All site copy, in English + Arabic.
- * Arabic is a real translation (not machine filler) so the RTL layout can be judged properly.
+ * ERA Residence — all site copy, transcribed from era-residence.com.
  */
 
-export type Lang = "en" | "ar";
-export const LANGS: Lang[] = ["en", "ar"];
+import { asset } from "./era";
 
-export type UnitTypeKey = "ground-garden" | "typical" | "duplex" | "commercial";
+export const site = {
+  url: "https://www.era-residence.com",
+  name: "Era Residence",
+  city: "Estepona",
+  phone: "+34 (655) 408-648",
+  phoneHref: "tel:+34655408648",
+  whatsapp: "https://wa.me/34655408648",
+  email: "info@era-residence.com",
+  mapOffice: "https://maps.app.goo.gl/EzyfT2M6vR5aBdMu9",
+  mapLocation: "https://maps.app.goo.gl/5FY2BUESnAmcybFe8",
+  linkedin: "https://www.linkedin.com/company/eraresidenceestepona/?viewAsMember=true",
+  facebook: "https://www.facebook.com/era.residence.estepona",
+  instagram: "https://www.instagram.com/era.residence.estepona",
+  maker: "The First The Last",
+  makerUrl:
+    "https://thefirstthelast.agency/?utm_source=era-residence&utm_medium=article&utm_campaign=promo",
+} as const;
 
-export const content = {
-  en: {
-    meta: {
-      title: "DAMA Development — Rawasin, New Sohag",
-      description:
-        "Rawasin by DAMA Development — a boutique gated community of six buildings, four homes per floor and no corridors, in the heart of New Sohag, Upper Egypt.",
-    },
-    brand: {
-      name: "DAMA",
-      sub: "Development",
-      project: "Rawasin",
-      city: "New Sohag",
-      country: "Egypt",
-      tagline: "A place to return to",
-    },
-    preloader: {
-      hint: "Loading",
-    },
-    nav: {
-      menu: "Menu",
-      close: "Close",
-      backToTop: "Back to top",
-      apartments: "Select a unit",
-      bookCall: "Book a call",
-      contact: "Contact",
-      amenities: "Amenities",
-      switchTo: "العربية",
-      home: "Home",
-      project: "Rawasin",
-      company: "Developer",
-    },
-    cookies: {
-      title: "Cookies",
-      body: "This website uses cookies to ensure you get the best experience on our website.",
-      accept: "Accept",
-      decline: "Decline",
-    },
-    hero: {
-      titleTop: "Dama",
-      titleBottom: "Rawasin",
-      city: "New Sohag",
-      line: "A place",
-      toggleDay: "by day",
-      toggleNight: "by night",
-      lineEnd: "to return to",
-      scroll: "Scroll",
-      cta: "View available units",
-      imageDay: "Rawasin compound by day",
-      imageNight: "Rawasin compound by night",
-    },
-    intro: {
-      eyebrow: "Upper Egypt",
-      line: "A place to live — to return year after year",
-      paragraph:
-        "Rawasin was designed as a community, not a complex. Six low-rise buildings arranged around green walking paths, four apartments per floor, and views that open onto the desert sky.",
-    },
-    reasons: {
-      eyebrow: "Three reasons to choose DAMA",
-      items: [
-        {
-          title: "Real-Life Location",
-          image: "location",
-          body: "New Sohag puts the university, schools, hospitals and the Nile corniche within minutes of your door — a rare balance of quiet living and everyday access.",
-          foot: "Designed as a community, not a complex",
-        },
-        {
-          title: "Built to stay",
-          image: "walkway",
-          body: "“Rawasin” means deep roots and solid foundations. Limestone façades, planted walking paths and green living walls let the architecture age beautifully.",
-          foot: "Designed by Eng. Waleed Arafa",
-        },
-        {
-          title: "Boutique concept",
-          image: "garden",
-          body: "A gated community of only six residential buildings, with a commercial and service strip integrated into the site for daily needs.",
-          foot: "Four apartments per floor — never more",
-        },
-      ],
-      quote:
-        "Instead of corridors, walking paths connect the apartments — making Rawasin feel closer to a group of private homes than a standard apartment building.",
-      quoteBy: "Architecture Team",
-      quoteBy2: "DAMA Development",
-    },
-    concept: {
-      eyebrow: "The concept",
-      title: "Rawasin",
-      lead: "A boutique gated community of six buildings, designed around privacy, wellbeing and timeless Egyptian living",
-      body: "Designed under the vision of Eng. Waleed Arafa, the project fuses contemporary architecture with an authentic Egyptian identity — warm materials, natural landscaping and carefully curated spaces.",
-      placeEyebrow: "New Sohag",
-      placeTitle: "The Northern Expansion",
-      stats: [
-        { value: 6, label: "Residential buildings" },
-        { value: 4, label: "Homes per floor" },
-        { value: 25, label: "Residences in total" },
-        { value: 2026, label: "Handover" },
-      ],
-      cta: "View available units",
-    },
-    map: {
-      eyebrow: "The city you wanted yours this year",
-      drag: "Drag to see more",
-      labels: {
-        country: "Egypt",
-        region: "Sohag",
-        city: "New Sohag",
-        compound: "Rawasin",
+export const copy = {
+  meta: {
+    title: "ERA Residence — Contemporary Mediterranean Residences in Estepona",
+    description:
+      "Era Residence — a boutique gated community of only 25 residences on the New Golden Mile, Estepona. Two, three and four bedroom apartments, duplexes and penthouses on the Costa del Sol.",
+  },
+
+  preloader: {
+    words: ["Costa", "Era", "Residence", "Estepona"],
+    delSol: "del Sol",
+    line: "Era Residence — a place to return to.",
+  },
+
+  nav: {
+    home: "Home",
+    menu: "Menu",
+    close: "Close",
+    backToTop: "Back to top",
+    apartments: "Select an Apartment",
+    bookCall: "Book a call",
+    contact: "Contact",
+  },
+
+  cookies: {
+    title: "Cookies",
+    body: "This website uses cookies to ensure you get the best experience on website.",
+    accept: "Accept",
+    decline: "Decline",
+  },
+
+  hero: {
+    scroll: "Scroll",
+    title: "Era Residence",
+    titleLines: ["Era", "Residence"],
+    city: "Estepona",
+    line: "A place",
+    toggleDay: "by day",
+    toggleNight: "by night",
+    lineEnd: "to return to",
+    cta: "View available apartments",
+    imageDay: "Era Residence gated community by day",
+    imageNight: "Era Residence gated community by night",
+  },
+
+  intro: {
+    region: "Costa del Sol",
+    line: "A place to live — to return year after year",
+  },
+
+  reasons: {
+    eyebrow: "Three reasons to choose Era",
+    items: [
+      {
+        title: "Real-Life Location",
+        image: asset.reasonLocation,
+        body: "Nestled between pristine beaches, world-class golf courses and exclusive wellness clubs, Era Residence offers a rare balance of seclusion and seamless access to the finest Mediterranean lifestyle.",
+        foot: "Designed as a community, not a complex",
       },
+      {
+        title: "Built to stay",
+        image: asset.reasonBuilt,
+        body: "Drawing on the spirit of Marbella's golden age, the design blends modern architecture with natural materials, lush landscaping and thoughtfully crafted spaces.",
+        foot: "Designed as a community, not a complex",
+      },
+      {
+        title: "Boutique concept",
+        image: asset.reasonBoutique,
+        body: "A boutique gated community of 25 residences on Costa del Sol, designed around privacy, wellbeing and timeless Mediterranean living.",
+        foot: "Designed as a community, not a complex",
+      },
+    ],
+    quote:
+      "Instead of corridors, walking paths connect the apartments — making Era Residence feel closer to a group of private homes than a standard apartment building.",
+    quoteBy: "Architecture Team",
+    quoteBy2: "Era Residence",
+  },
+
+  concept: {
+    eyebrow: "The concept",
+    title: "The concept",
+    lead: "ERA Residences is a boutique gated community of only 25 residences, designed around privacy, wellbeing and timeless Mediterranean living",
+    body:
+      "Inspired by the atmosphere of Marbella's golden era, the project combines contemporary architecture with warm materials, natural landscaping and carefully curated spaces.",
+    image: asset.conceptAlpha,
+    placeEyebrow: "Spain",
+    placeTitle: "New Golden Mile",
+    placeImage: asset.conceptTerrace,
+    between: "Between Marbella and Estepona",
+    betweenBody:
+      "Surrounded by beaches, golf courses, wellness clubs and established lifestyle destinations, the project combines privacy with effortless connectivity to everything essential for Mediterranean living. A location designed not around movement — but around returning.",
+    cta: "View available apartments",
+  },
+
+  map: {
+    eyebrow: "The coast you wanted yours this year",
+    labels: ["New Golden Mile, Estepona", "Costa del Sol", "Spain"],
+    drag: "Drag to see more",
+    masterPlanAlt: "Era Residence master plan",
+  },
+
+  typologies: {
+    cta: "Explore",
+    cards: [
+      {
+        slug: "ground-floor-basement",
+        key: "ground-basement",
+        title: "Ground floor + basement",
+        beds: "3",
+        area: "178 — 202 m²",
+        body: "Private basement, direct outdoor access and a dedicated lower level.",
+        image: asset.typGroundBasement,
+        cta: "Explore Ground + basement",
+      },
+      {
+        slug: "ground-floor",
+        key: "ground",
+        title: "Ground Floor",
+        beds: "2",
+        area: "97 — 104 m²",
+        body: "Step directly onto your terrace and into the communal gardens, blending indoor comfort with outdoor living.",
+        image: asset.typGround,
+        cta: "Explore Ground floor",
+      },
+      {
+        slug: "penthouse-duplex",
+        key: "penthouse",
+        title: "Penthouse duplex",
+        beds: "2-3",
+        area: "124 — 243 m²",
+        body: "Two floors crowned with panoramic views and a private rooftop solarium — the ultimate expression of luxury living.",
+        image: asset.typPenthouse,
+        cta: "Explore Penthouses",
+      },
+    ],
+  },
+
+  range: {
+    line: "A place to live — to return year after year",
+    body:
+      "Residences range from 104 to 244 sq.m., offering spacious single level and duplex layouts with generous terraces and rooftop solariums.",
+  },
+
+  amenities: {
+    cta: "Book a call now",
+    items: [
+      {
+        title: "Gated community",
+        body: "Instead of corridors, walking paths connect the apartments — making Era Residence feel closer to a group of private homes than a standard apartment building.",
+        image: asset.amGated,
+      },
+      {
+        title: "Swimming Pool",
+        body: "Saltwater swimming pool, Children's pool, Sauna, jacuzzi and wellness shower",
+        image: asset.amPool,
+      },
+      {
+        title: "Parking area",
+        body: "Each parking space includes pre-installation for optional EV charging.",
+        image: asset.amParking,
+      },
+      {
+        title: "Spa & gym",
+        body: "Designed exclusively for residents and their guests, the amenities at ERA encourage a slower and more balanced Mediterranean lifestyle",
+        image: asset.amSpa,
+      },
+      {
+        title: "Landscaping",
+        body: "The landscaping concept was designed to soften the architecture and strengthen the connection between the residences and the Mediterranean environment.",
+        image: asset.amLandscape,
+      },
+    ],
+  },
+
+  space: {
+    eyebrow: "The space to Live in",
+    title: "Live in",
+    upgrades: "Optional upgrades are available:",
+    upgradeList: ["Private jacuzzi", "EV charging point installation", "Photovoltaic panels"],
+    body: "Every detail was selected to create homes that feel elegant, intuitive and effortless to live in",
+    features: [
+      "Underfloor heating throughout the property.",
+      "Climate automation systems.",
+      "Smart lock access systems.",
+      "Electrically adjustable aluminium shutters.",
+      "Schneider Electric DLIFE switches and mechanisms.",
+    ],
+    gallery: [asset.cam03, asset.cam07, asset.cam09, asset.kitchen],
+    cta: "View available apartments",
+  },
+
+  architecture: {
+    eyebrow: "Architecture",
+    title:
+      "The architecture of ERA Residences balances clean contemporary lines with Mediterranean warmth and texture",
+    byPre: "By",
+    byName: "Schiemann Weyers",
+    bySecond: "Architects OCWA Architects",
+    image: asset.cam02,
+    facts: [
+      { label: "Developer", value: "Swiss Technology S.L." },
+      { label: "Sales & Marketing", value: "Unreal Estate Group", logo: asset.unrealLogo },
+      {
+        label: "License obtained",
+        value:
+          "The project holds all required permits and an active construction license. All documentation is publicly available. Construction is already underway — visit the site in person or follow progress via our live online stream.",
+      },
+      {
+        label: "2026",
+        value:
+          "Currently under construction. The first phase of construction is underway, with ongoing development of the apartments and communal areas. Potential buyers can anticipate a modern living space upon completion of the build.",
+      },
+    ],
+    closing:
+      "A short conversation is enough to understand which apartment fits your use case — whether it is a family second home, a longer stay, or a place to return to year after year.",
+    cta: "Book a call now",
+  },
+
+  closing: {
+    title: "Perfect sea views",
+    subtitle: "From rooftop terraces",
+    image: asset.cta1920,
+    cta: "View available apartments",
+  },
+
+  pillars: [
+    {
+      title: "Crafted to Endure",
+      body: "Natural stone façades were selected for their timeless appearance, durability and ease of maintenance, allowing the architecture to age beautifully over time.",
     },
-    units: {
-      eyebrow: "Available units",
-      title: "Choose your home",
+    {
+      title: "Light & Flow",
+      body: "Terraces, rooftop solariums and expansive openings maximize natural light while creating a seamless indoor outdoor lifestyle.",
+    },
+    {
+      title: "Your Private Sanctuary",
+      body: "Instead of corridors, walking paths connect the apartments — making Era Residence feel closer to a group of private homes than a standard apartment building.",
+    },
+  ],
+
+  footer: {
+    toTop: "To top",
+    officeTitle: "Sales Office",
+    officeAddress: "Avenida Litoral, 29680 Estepona, Málaga, Spain",
+    rights: "©2026 All rights reserved",
+    privacy: "Privacy policy",
+    terms: "Terms of Use",
+    madeBy: "Made by",
+    wordmark: "Era Residence.",
+    image: asset.cam09Footer,
+  },
+
+  apartments: {
+    breadcrumb: "Select an Apartment",
+    title: "Apartments",
+    results: "apartments",
+    filters: {
+      typology: "Typology",
       bedrooms: "Bedrooms",
-      area: "Area up to",
-      cta: "Explore",
+      sortBy: "Sort by",
       all: "All",
-      types: {
-        "ground-garden": {
-          name: "Ground floor + garden",
-          short: "Garden",
-          body: "Step directly onto your private terrace and into the communal gardens, blending indoor comfort with outdoor living.",
-        },
-        typical: {
-          name: "Typical residence",
-          short: "Typical",
-          body: "North-facing (Bahary) orientation, panoramic aluminium windows and a balcony shaded by timber screens.",
-        },
-        duplex: {
-          name: "Duplex & penthouse",
-          short: "Duplex",
-          body: "Two floors crowned with panoramic views and a private roof terrace — the most generous layout in the project.",
-        },
-        commercial: {
-          name: "Commercial & clinic",
-          short: "Commercial",
-          body: "The retail and medical strip on the main frontage, serving the compound and its neighbours.",
-        },
+      reset: "Reset",
+      sort: { relevant: "Relevant", asc: "Smallest area", desc: "Largest area" },
+      typologyOptions: [
+        { slug: "ground-floor-basement", label: "Ground floor + basement" },
+        { slug: "ground-floor", label: "Ground Floor" },
+        { slug: "penthouse-duplex", label: "Penthouse duplex" },
+      ],
+    },
+    card: {
+      completion: "Completion",
+      bed: "bed",
+      terracePrefix: "+ ",
+      terraceSuffix: "M² Terrace",
+    },
+    empty: {
+      title: "nothing found",
+      body: "We didn't find anything for your request. Please, try changing your search settings",
+    },
+    bottomReasons: [
+      {
+        title: "Boutique concept",
+        body: "A boutique gated community of 25 residences on Costa del Sol, designed around privacy, wellbeing and timeless Mediterranean living.",
+        image: asset.exterior1,
       },
-    },
-    amenities: {
-      eyebrow: "Amenities",
-      lead: "Designed exclusively for residents and their guests, the amenities at Rawasin encourage a slower and more balanced life.",
-      items: [
-        { title: "Gated community", body: "24/7 security, controlled access and a perimeter that keeps the outside world outside." },
-        { title: "Swimming pool", body: "Saltwater pool, children's pool, jacuzzi and a shaded sun deck." },
-        { title: "Parking area", body: "Basement parking with natural light and ventilation — each bay pre-wired for EV charging." },
-        { title: "Spa & gym", body: "Sauna, steam and wellness shower, plus a residents' gym and changing rooms." },
-        { title: "Landscaping", body: "Green areas, scenic walking paths and vertical green walls on every rear elevation." },
-        { title: "Kids area", body: "A family-friendly environment with dedicated and safely separated play areas." },
-      ],
-      cta: "Book a call now",
-    },
-    interiors: {
-      eyebrow: "The space to live in",
-      title: "Live in",
-      body: "Every detail was selected to create homes that feel elegant, intuitive and effortless to live in.",
-      upgrades:
-        "Optional upgrades are available: private jacuzzi · EV charging point installation · photovoltaic panels · roof pergola",
-      features: [
-        "Central air-conditioning pre-installation",
-        "Smart home and smart lock access systems",
-        "Two spacious elevators per building, accessible for wheelchairs",
-        "Panoramic aluminium windows and electric shutters",
-        "Imported porcelain and natural stone finishes",
-        "No living-space window faces another apartment",
-      ],
-      cta: "View available units",
-    },
-    architecture: {
-      eyebrow: "Architecture",
-      title: "The architecture of Rawasin balances clean contemporary lines with Egyptian warmth and texture",
-      byPre: "Architecture by",
-      byName: "Dar Arafa Architecture",
-      facts: [
-        { label: "Developer", value: "DAMA Development" },
-        { label: "Sales & marketing", value: "Inscription Development" },
-        {
-          label: "License obtained",
-          value:
-            "The project holds all required permits and an active construction license. Construction is already underway — visit the site in person or follow progress with our team.",
-        },
-        {
-          label: "2026",
-          value:
-            "Currently under construction. The first phase is underway, with ongoing development of the residences and communal areas.",
-        },
-      ],
-      closing:
-        "A short conversation is enough to understand which home fits your use case — whether it is a family home, a longer stay, or a place to return to year after year.",
-    },
-    space: {
-      eyebrow: "The space",
-      cards: [
-        {
-          title: "Crafted to endure",
-          body: "Natural stone façades were selected for their timeless appearance, durability and ease of maintenance, allowing the architecture to age beautifully over time.",
-        },
-        {
-          title: "Light & flow",
-          body: "Terraces, roof terraces and expansive openings maximise natural light while creating a seamless indoor–outdoor lifestyle.",
-        },
-        {
-          title: "Your private sanctuary",
-          body: "Instead of corridors, walking paths connect the apartments — making Rawasin feel closer to a group of private homes than a standard apartment building.",
-        },
-      ],
-    },
-    cta: {
-      title: "Calm mornings, long evenings",
-      line2: "From your own roof",
-      lead: "Available residences range from 130 to 240 m², in single-level and duplex layouts with generous terraces and roof solariums.",
-      button: "View available units",
-      secondary: "Book a call now",
-    },
-    footer: {
-      toTop: "To top",
-      phone: "+20 100 000 0000",
-      officeTitle: "Sales Office",
-      officeAddress: "New Sohag City, Sohag Governorate, Egypt",
-      branchTitle: "Sohag Branch",
-      branchAddress: "El Gomhoreya Street, Sohag City, Egypt",
-      rights: "©2026 All rights reserved",
-      privacy: "Privacy policy",
-      terms: "Terms of use",
-      madeBy: "Made by",
-      madeByName: "Arena Agent Mode",
-      newsletter: "Register your interest",
-      emailPlaceholder: "Email address",
-    },
-    apartments: {
-      title: "Available units",
-      lead: "A live list of residences at Rawasin. Availability changes quickly — reserve early.",
-      filters: "Filter",
-      sort: "Sort",
-      sortOptions: { areaAsc: "Area — small to large", areaDesc: "Area — large to small" },
-      statusLabel: { available: "Available", reserved: "Reserved", sold: "Sold" },
-      beds: "beds",
-      baths: "baths",
-      floor: "Floor",
-      building: "Building",
-      unit: "Unit",
-      orientation: "Orientation",
-      bldg: "Bldg",
-      price: "On request",
-      viewDetails: "Request details",
-      empty: "No units match this filter yet.",
-      cta: "Book a call",
-      backHome: "Back to home",
-    },
-    contact: {
-      title: "Book a call",
-      lead: "Tell us what you are looking for and a member of the DAMA sales team will call you back — usually the same working day.",
-      form: {
-        name: "Full name",
-        phone: "Phone number",
-        email: "Email",
-        interest: "I'm interested in",
-        interestOptions: [
-          "Ground floor + garden",
-          "Typical residence",
-          "Duplex & penthouse",
-          "Commercial & clinic",
-          "Not sure yet",
-        ],
-        message: "Message",
-        messagePlaceholder: "Tell us about your timeline, budget or preferred building…",
-        consent: "I agree to be contacted about Rawasin by phone, WhatsApp or email.",
-        submit: "Send request",
-        sending: "Sending…",
-        successTitle: "Thank you",
-        successBody: "Your request has been received. A member of the DAMA team will be in touch shortly.",
-        again: "Send another request",
-        errors: {
-          name: "Please enter your name.",
-          phone: "Please enter a valid phone number.",
-          email: "Please enter a valid email address.",
-          consent: "Please accept to be contacted.",
-        },
+      {
+        title: "Built to stay",
+        body: "Drawing on the spirit of Marbella's golden age, the design blends modern architecture with natural materials, lush landscaping and thoughtfully crafted spaces.",
+        image: asset.terraceView2,
       },
-      details: {
-        title: "Sales office",
-        hours: "Saturday – Thursday, 10:00 – 19:00",
-        whatsapp: "WhatsApp",
-        call: "Call us",
-        directions: "Get directions",
+      {
+        title: "Industrial finishing",
+        body: "Instead of corridors, walking paths connect the apartments — making Era Residence feel closer to a group of private homes than a standard apartment building.",
+        image: asset.groundFloor2,
       },
-    },
+    ],
+  },
+
+  unit: {
+    titlePrefix: "No.",
+    bedrooms: "Bedrooms",
+    interior: "Interior area",
+    terrace: "Terrace",
+    garden: "Garden",
+    tabs: { info: "Info", benefits: "Benefits" },
+    submit: "Submit a request",
+    pdf: "pdf",
+    similar: "similar options",
+    similarLead: "Other apartments that might suit your needs",
+    viewAll: "View all",
+    galleryAlt: "Era Residence interior",
+    footerImage: asset.unitFooterImage,
     notFound: {
-      title: "Page not found",
-      body: "The page you are looking for has moved or no longer exists.",
-      cta: "Back to home",
+      title: "Apartment not found",
+      body: "This apartment is no longer listed. Browse everything that is currently available.",
+      cta: "View all apartments",
     },
   },
 
-  ar: {
-    meta: {
-      title: "داما للتطوير العقاري — رواسين، سوهاج الجديدة",
-      description:
-        "رواسين من داما للتطوير العقاري — مجتمع سكني مغلق من ست مبانٍ فقط، أربع وحدات في الدور وممرات مشي بدلًا من الكوريدورات، في قلب سوهاج الجديدة.",
+  request: {
+    title: "Submit a request",
+    lead: "Leave your details and our sales team will send you the full brochure, floor plans and availability for this apartment.",
+    name: "Full name",
+    phone: "Phone",
+    email: "Email",
+    message: "Message",
+    apartment: "Apartment",
+    consent: "I agree to be contacted about Era Residence.",
+    submit: "Submit a request",
+    sending: "Sending…",
+    successTitle: "Thank you",
+    successBody: "Your request has been received — our team will come back to you shortly.",
+    again: "Send another request",
+    close: "Close",
+    errors: {
+      name: "Please enter your name.",
+      phone: "Please enter a valid phone number.",
+      email: "Please enter a valid email address.",
+      consent: "Please accept to be contacted.",
     },
-    brand: {
-      name: "داما",
-      sub: "للتطوير العقاري",
-      project: "رواسين",
-      city: "سوهاج الجديدة",
-      country: "مصر",
-      tagline: "مكانٌ تعود إليه",
-    },
-    preloader: {
-      hint: "جارٍ التحميل",
-    },
-    nav: {
-      menu: "القائمة",
-      close: "إغلاق",
-      backToTop: "العودة إلى الأعلى",
-      apartments: "اختر وحدتك",
-      bookCall: "احجز مكالمة",
-      contact: "تواصل معنا",
-      amenities: "الخدمات",
-      switchTo: "English",
-      home: "الرئيسية",
-      project: "رواسين",
-      company: "المطوّر",
-    },
-    cookies: {
-      title: "ملفات تعريف الارتباط",
-      body: "يستخدم هذا الموقع ملفات تعريف الارتباط لضمان أفضل تجربة لك على الموقع.",
-      accept: "موافق",
-      decline: "رفض",
-    },
-    hero: {
-      titleTop: "داما",
-      titleBottom: "رواسين",
-      city: "سوهاج الجديدة",
-      line: "مكانٌ",
-      toggleDay: "بالنهار",
-      toggleNight: "بالليل",
-      lineEnd: "تعود إليه",
-      scroll: "انزل",
-      cta: "شاهد الوحدات المتاحة",
-      imageDay: "مجتمع رواسين بالنهار",
-      imageNight: "مجتمع رواسين بالليل",
-    },
-    intro: {
-      eyebrow: "صعيد مصر",
-      line: "مكانٌ للحياة — تعود إليه عامًا بعد عام",
-      paragraph:
-        "صُمم رواسين ليكون مجتمعًا لا مجرد مشروع. ستة مبانٍ منخفضة الارتفاع حول ممرات مشي خضراء، أربع وحدات في الدور، ومشاهد تنفتح على سماء الصعيد.",
-    },
-    reasons: {
-      eyebrow: "ثلاثة أسباب تدفعك لاختيار داما",
-      items: [
-        {
-          title: "موقع للحياة",
-          image: "location",
-          body: "سوهاج الجديدة تضع الجامعة والمدارس والمستشفيات وكورنيش النيل على بُعد دقائق من بابك — توازن نادر بين الهدوء وسهولة الوصول.",
-          foot: "صُمم ليكون مجتمعًا لا مجرد مشروع",
-        },
-        {
-          title: "مبنيٌّ ليبقى",
-          image: "walkway",
-          body: "«رواسين» تعني الجذور الراسخة والأساس المتين. واجهات من الحجر الطبيعي وممرات مشي مشجّرة وحوائط خضراء تجعل العمارة تكبر بجمال مع الزمن.",
-          foot: "بتصميم المهندس وليد عرفة",
-        },
-        {
-          title: "مفهوم بوتيك",
-          image: "garden",
-          body: "مجتمع مغلق من ستة مبانٍ سكنية فقط، مع منطقة تجارية وخدمية متكاملة داخل الموقع لتلبية الاحتياجات اليومية.",
-          foot: "أربع وحدات في الدور — لا أكثر",
-        },
-      ],
-      quote:
-        "بدلًا من الممرات المغلقة، تربط مسارات المشي بين الوحدات — لتبدو رواسين أقرب إلى مجموعة بيوت خاصة منها إلى مبنى سكني تقليدي.",
-      quoteBy: "فريق العمارة",
-      quoteBy2: "داما للتطوير العقاري",
-    },
-    concept: {
-      eyebrow: "المفهوم",
-      title: "رواسين",
-      lead: "مجتمع سكني مغلق من ستة مبانٍ، مصمم حول الخصوصية والرفاهية والحياة المصرية الأصيلة",
-      body: "صُمم المشروع برؤية المهندس وليد عرفة، ليجمع بين العمارة المعاصرة والهوية المصرية الأصيلة — مواد دافئة ولاند سكيب طبيعي ومساحات مدروسة بعناية.",
-      placeEyebrow: "سوهاج الجديدة",
-      placeTitle: "التوسع الشمالي",
-      stats: [
-        { value: 6, label: "مبانٍ سكنية" },
-        { value: 4, label: "وحدات في الدور" },
-        { value: 25, label: "وحدة سكنية" },
-        { value: 2026, label: "التسليم" },
-      ],
-      cta: "شاهد الوحدات المتاحة",
-    },
-    map: {
-      eyebrow: "المدينة التي أردتها لك هذا العام",
-      drag: "اسحب لرؤية المزيد",
-      labels: {
-        country: "مصر",
-        region: "سوهاج",
-        city: "سوهاج الجديدة",
-        compound: "رواسين",
-      },
-    },
-    units: {
-      eyebrow: "الوحدات المتاحة",
-      title: "اختر منزلك",
-      bedrooms: "غرف النوم",
-      area: "المساحة حتى",
-      cta: "استكشف",
-      all: "الكل",
-      types: {
-        "ground-garden": {
-          name: "أرضي بحديقة",
-          short: "أرضي",
-          body: "اخرج من غرفة معيشتك مباشرة إلى تراسك الخاص ثم إلى حدائق المجتمع، لتندمج الراحة الداخلية مع الحياة في الهواء الطلق.",
-        },
-        typical: {
-          name: "وحدة متكررة",
-          short: "متكررة",
-          body: "اتجاه بحري بالكامل، ونوافذ ألومنيوم بانورامية، وبلكونة مظللة بشرائح خشبية.",
-        },
-        duplex: {
-          name: "دوبلكس وبنتهاوس",
-          short: "دوبلكس",
-          body: "دوران يتوّجهما إطلالة بانورامية وتراس سطحي خاص — أوسع تقسيم في المشروع.",
-        },
-        commercial: {
-          name: "تجاري وعيادات",
-          short: "تجاري",
-          body: "الشريط التجاري والطبي على الواجهة الرئيسية، يخدم المجتمع والمناطق المحيطة.",
-        },
-      },
-    },
-    amenities: {
-      eyebrow: "الخدمات",
-      lead: "صُممت خدمات رواسين حصريًا للسكان وضيوفهم، لتشجّع حياة أكثر توازنًا وهدوءًا.",
-      items: [
-        { title: "مجتمع مغلق", body: "أمن على مدار الساعة وتدقيق للدخول وسور محيطي يحفظ الخصوصية." },
-        { title: "حمام سباحة", body: "حمام سباحة بماء مالح، وحمام للأطفال، وجاكوزي، ومنطقة استرخاء مظللة." },
-        { title: "مواقف سيارات", body: "جراج بالبدروم بإضاءة وتهوية طبيعية — وكل موقف مجهّز مسبقًا لشاحن السيارات الكهربائية." },
-        { title: "سبا وصالة رياضية", body: "ساونا وبخار ودُش استشفائي، مع صالة رياضية وغرف تغيير للسكان." },
-        { title: "لاند سكيب", body: "مساحات خضراء ومسارات مشي وحوائط خضراء رأسية على كل الواجهات الخلفية." },
-        { title: "منطقة أطفال", body: "بيئة عائلية آمنة مع مناطق لعب مخصصة ومنفصلة." },
-      ],
-      cta: "احجز مكالمة الآن",
-    },
-    interiors: {
-      eyebrow: "المساحة التي تعيش فيها",
-      title: "لتسكنها",
-      body: "اختير كل تفصيل ليصنع منزلًا أنيقًا وبديهيًا وسهل العيش فيه.",
-      upgrades: "تتوفر ترقيات اختيارية: جاكوزي خاص · تركيب شاحن للسيارة الكهربائية · ألواح شمسية · برجولا للسطح",
-      features: [
-        "تجهيز مسبق للتكييف المركزي",
-        "أنظمة منزل ذكي وأقفال ذكية",
-        "مصعدان واسعان في كل مبنى، مهيّآن لذوي الاحتياجات",
-        "نوافذ ألومنيوم بانورامية وشيش حماية كهربائي",
-        "تشطيبات بورسلين وحجر طبيعي مستورد",
-        "لا تطل أي نافذة معيشة على وحدة أخرى",
-      ],
-      cta: "شاهد الوحدات المتاحة",
-    },
-    architecture: {
-      eyebrow: "العمارة",
-      title: "توازن عمارة رواسين بين الخطوط المعاصرة النقية ودفء الطابع المصري وملمسه",
-      byPre: "التصميم المعماري",
-      byName: "دار عرفة للعمارة",
-      facts: [
-        { label: "المطوّر", value: "داما للتطوير العقاري" },
-        { label: "التسويق والبيع", value: "شركة إنستقرشن للتطوير" },
-        {
-          label: "التراخيص",
-          value:
-            "المشروع حاصل على كافة التصاريح ورخصة بناء سارية، وكل المستندات متاحة للاطلاع. التنفيذ جارٍ بالفعل — يمكنك زيارة الموقع أو متابعة التقدم مع فريقنا.",
-        },
-        {
-          label: "٢٠٢٦",
-          value: "المشروع تحت التنفيذ حاليًا. المرحلة الأولى جارية، مع تطوير مستمر للوحدات والمناطق المشتركة.",
-        },
-      ],
-      closing: "مكالمة قصيرة تكفي لنعرف الوحدة التي تناسبك — سواء لمنزل العائلة أو لإقامة أطول أو لمكان تعود إليه عامًا بعد عام.",
-    },
-    space: {
-      eyebrow: "المساحة",
-      cards: [
-        {
-          title: "مصنوع ليبقى",
-          body: "اختيرت واجهات الحجر الطبيعي لمظهرها الخالد ومتانتها وسهولة صيانتها، لتبقى العمارة جميلة مع الزمن.",
-        },
-        {
-          title: "الضوء والانسيابية",
-          body: "التراسات والأسطح البانورامية والفتحات الواسعة تضاعف الضوء الطبيعي وتخلق حياة تتدفق بين الداخل والخارج.",
-        },
-        {
-          title: "خلوتك الخاصة",
-          body: "بدلًا من الممرات المغلقة، تربط مسارات المشي بين الوحدات — لتبدو رواسين أقرب إلى مجموعة بيوت خاصة.",
-        },
-      ],
-    },
-    cta: {
-      title: "صباحات هادئة، وأمسيات طويلة",
-      titleLine2: "من سطحك الخاص",
-      lead: "تتراوح المساحات المتاحة من ١٣٠ إلى ٢٤٠ مترًا مربعًا، بتقسيمات دور واحد ودوبلكس مع تراسات واسعة وأسطح خاصة.",
-      button: "شاهد الوحدات المتاحة",
-      secondary: "احجز مكالمة الآن",
-    },
-    footer: {
-      toTop: "إلى الأعلى",
-      phone: "+20 100 000 0000",
-      officeTitle: "مكتب المبيعات",
-      officeAddress: "سوهاج الجديدة، محافظة سوهاج، مصر",
-      branchTitle: "فرع سوهاج",
-      branchAddress: "شارع الجمهورية، مدينة سوهاج، مصر",
-      rights: "© ٢٠٢٦ جميع الحقوق محفوظة",
-      privacy: "سياسة الخصوصية",
-      terms: "شروط الاستخدام",
-      madeBy: "تصميم وتطوير",
-      madeByName: "Arena Agent Mode",
-      newsletter: "سجّل اهتمامك",
-      emailPlaceholder: "البريد الإلكتروني",
-    },
-    apartments: {
-      title: "الوحدات المتاحة",
-      lead: "قائمة محدّثة بوحدات رواسين. الإتاحة تتغير سريعًا — فالحجز المبكر أفضل.",
-      filters: "تصفية",
-      sort: "ترتيب",
-      sortOptions: { areaAsc: "المساحة — من الأصغر", areaDesc: "المساحة — من الأكبر" },
-      statusLabel: { available: "متاحة", reserved: "محجوزة", sold: "مبيعة" },
-      beds: "غرف",
-      baths: "حمام",
-      floor: "الدور",
-      building: "المبنى",
-      unit: "الوحدة",
-      orientation: "الاتجاه",
-      bldg: "مبنى",
-      price: "السعر عند الطلب",
-      viewDetails: "اطلب التفاصيل",
-      empty: "لا توجد وحدات مطابقة لهذه التصفية حتى الآن.",
-      cta: "احجز مكالمة",
-      backHome: "العودة للرئيسية",
-    },
-    contact: {
-      title: "احجز مكالمة",
-      lead: "أخبرنا بما تبحث عنه وسيتواصل معك أحد أعضاء فريق مبيعات داما — عادةً في نفس يوم العمل.",
-      form: {
-        name: "الاسم بالكامل",
-        phone: "رقم الهاتف",
-        email: "البريد الإلكتروني",
-        interest: "مهتم بـ",
-        interestOptions: ["أرضي بحديقة", "وحدة متكررة", "دوبلكس وبنتهاوس", "تجاري وعيادات", "لم أحدد بعد"],
-        message: "رسالة",
-        messagePlaceholder: "أخبرنا عن الجدول الزمني أو الميزانية أو المبنى المفضل…",
-        consent: "أوافق على التواصل معي بخصوص رواسين عبر الهاتف أو واتساب أو البريد الإلكتروني.",
-        submit: "إرسال الطلب",
-        sending: "جارٍ الإرسال…",
-        successTitle: "شكرًا لك",
-        successBody: "تم استلام طلبك، وسيتواصل معك أحد أعضاء فريق داما قريبًا.",
-        again: "إرسال طلب آخر",
-        errors: {
-          name: "من فضلك أدخل اسمك.",
-          phone: "من فضلك أدخل رقم هاتف صحيح.",
-          email: "من فضلك أدخل بريدًا إلكترونيًا صحيحًا.",
-          consent: "من فضلك أوافق على التواصل معك.",
-        },
-      },
-      details: {
-        title: "مكتب المبيعات",
-        hours: "السبت – الخميس، ١٠:٠٠ – ١٩:٠٠",
-        whatsapp: "واتساب",
-        call: "اتصل بنا",
-        directions: "الاتجاهات على الخريطة",
-      },
-    },
-    notFound: {
-      title: "الصفحة غير موجودة",
-      body: "الصفحة التي تبحث عنها تم نقلها أو لم تعد موجودة.",
-      cta: "العودة للرئيسية",
-    },
+  },
+
+  contact: {
+    breadcrumb: "Contact",
+    title: "Contact us",
+    subtitle: "Write us",
+    salesOffice: "Sales Office",
+    location: "Location",
+    locationValue: "New Golden Mile, Estepona Costa del Sol, Spain",
+    talkToUs: "Talk to us",
+    whatsapp: "Whatsapp",
+    social: { linkedin: "Linkedin", facebook: "Facebook", instagram: "Instagram" },
+    mapAlt: "Era Residence sales office location",
+    mapLabel: "sales office",
+    hours: "Daily 09:00 – 21:00",
+    cta: "Book a call now",
+  },
+
+  notFound: {
+    title: "Page not found",
+    body: "The page you are looking for has moved or no longer exists.",
+    cta: "Back to home",
   },
 } as const;
 
-export type Dict = (typeof content)["en"];
+export type Copy = typeof copy;

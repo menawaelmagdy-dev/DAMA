@@ -7,7 +7,7 @@ import { setLenis } from "@/lib/scroll";
 import { useApp } from "./AppContext";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
-  const { ready, lang } = useApp();
+  const { ready } = useApp();
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     if (!ready) return;
     const id = window.setTimeout(() => ScrollTrigger.refresh(), 340);
     return () => window.clearTimeout(id);
-  }, [ready, lang]);
+  }, [ready]);
 
   return <>{children}</>;
 }

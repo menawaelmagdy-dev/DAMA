@@ -3,18 +3,24 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { scrollToTarget } from "@/lib/scroll";
+import { site } from "@/lib/content";
+import { asset } from "@/lib/era";
 import { useApp } from "../AppContext";
 import { Arrow, Marquee } from "../ui";
 
 export default function Footer() {
   const { t } = useApp();
   const root = useRef<HTMLElement>(null);
-  const tel = t.footer.phone.replace(/\s|\(|\)|-/g, "");
 
   return (
-    <footer ref={root} className="relative overflow-hidden bg-sand-50 pt-16 md:pt-24">
-      <div className="u-edge">
-        <div className="grid grid-cols-1 gap-10 border-b border-ink/10 pb-14 md:grid-cols-12 md:gap-8 md:pb-20">
+    <footer ref={root} className="relative overflow-hidden bg-paper">
+      <div className="relative h-[36svh] w-full overflow-hidden md:h-[46svh]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={t.footer.image} alt="" loading="lazy" className="h-full w-full object-cover" />
+      </div>
+
+      <div className="u-edge pt-14 md:pt-20">
+        <div className="grid grid-cols-1 gap-10 border-b border-line pb-14 md:grid-cols-12 md:gap-8 md:pb-20">
           <div className="md:col-span-4">
             <button
               onClick={() => scrollToTarget(0)}
@@ -28,25 +34,37 @@ export default function Footer() {
             </button>
 
             <a
-              href={`tel:${tel}`}
+              href={site.phoneHref}
               data-cursor="hover"
-              className="t-display block text-[clamp(1.5rem,3vw,2.4rem)] text-ink transition-colors hover:text-clay"
+              dir="ltr"
+              className="t-display block text-[clamp(1.5rem,3vw,2.4rem)] text-ink transition-colors hover:text-accent"
             >
-              {t.footer.phone}
+              {site.phone}
+            </a>
+            <a
+              href={`mailto:${site.email}`}
+              data-cursor="hover"
+              className="t-eyebrow mt-4 inline-flex text-ink-mute underline decoration-ink/20 underline-offset-4 transition-colors hover:text-ink"
+            >
+              {site.email}
             </a>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <p className="t-eyebrow mb-4 text-ink-mute">{t.footer.officeTitle}</p>
-            <p className="text-sm/relaxed text-ink-soft">{t.footer.officeAddress}</p>
+            <a
+              href={site.mapOffice}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="hover"
+              className="group inline-flex items-start gap-2 text-sm/relaxed text-ink-soft transition-colors hover:text-ink"
+            >
+              {t.footer.officeAddress}
+              <Arrow className="mt-1 h-3 w-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
+            </a>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="t-eyebrow mb-4 text-ink-mute">{t.footer.branchTitle}</p>
-            <p className="text-sm/relaxed text-ink-soft">{t.footer.branchAddress}</p>
-          </div>
-
-          <div className="md:col-span-2">
+          <div className="md:col-span-4">
             <p className="t-eyebrow mb-4 text-ink-mute">{t.nav.menu}</p>
             <ul className="flex flex-col gap-3">
               {[
@@ -61,7 +79,7 @@ export default function Footer() {
                     className="group inline-flex items-center gap-2 text-sm text-ink-soft transition-colors hover:text-ink"
                   >
                     {it.l}
-                    <Arrow className="h-3 w-3 opacity-0 transition-all duration-500 group-hover:translate-x-1 group-hover:opacity-100 rtl:rotate-180" />
+                    <Arrow className="h-3 w-3 opacity-0 transition-all duration-500 group-hover:translate-x-1 group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}
@@ -71,25 +89,42 @@ export default function Footer() {
 
         <div className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
           <p className="t-eyebrow text-ink-mute">{t.footer.rights}</p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <a href="#" data-cursor="hover" className="t-eyebrow text-ink-mute transition-colors hover:text-ink">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a
+              href={asset.privacyPdf}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="hover"
+              className="t-eyebrow text-ink-mute transition-colors hover:text-ink"
+            >
               {t.footer.privacy}
             </a>
-            <a href="#" data-cursor="hover" className="t-eyebrow text-ink-mute transition-colors hover:text-ink">
+            <a
+              href={asset.termsPdf}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="hover"
+              className="t-eyebrow text-ink-mute transition-colors hover:text-ink"
+            >
               {t.footer.terms}
             </a>
-            <span className="t-eyebrow flex items-center gap-2 text-ink-mute">
-              {t.footer.madeBy}
-              <span className="text-ink">{t.footer.madeByName}</span>
-            </span>
+            <a
+              href={site.makerUrl}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="hover"
+              className="t-eyebrow flex items-center gap-2 text-ink-mute transition-colors hover:text-ink"
+            >
+              {t.footer.madeBy} <span className="text-ink underline decoration-ink/20 underline-offset-4">{site.maker}</span>
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-ink/10 py-6">
+      <div className="border-t border-line py-6">
         <Marquee
-          text={t.brand.project}
-          className="t-display text-[clamp(3rem,14vw,12rem)] leading-none text-ink/90"
+          text={t.footer.wordmark}
+          className="t-display text-[clamp(3rem,13vw,11rem)] leading-none text-ink/90"
           speed={90}
           separator="—"
         />
